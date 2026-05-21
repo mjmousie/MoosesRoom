@@ -1,73 +1,39 @@
-# React + TypeScript + Vite
+# Moose's Room
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A mobile-first card game app featuring three casino-style games built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## Games
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Midnight Baseball
+A poker-style game where you bet on the Player hand or the Widow (Banker). Face the Dealer with optional wagers on wild cards and bonus cards. 1:1 payout.
 
-## React Compiler
+### Iron Cross
+Each player receives 5 cards plus a shared cross-shaped board (5 community cards arranged in a + pattern). Choose a row — vertical, horizontal, or mystery — back up your bet, and battle the Dealer. Supports a separate bonus bet.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Hi/Lo
+Predict whether the next card drawn will be higher or lower than the current card. Build a streak to climb a multiplier ladder up to 25x. Cash out at any time or go for the full 7-in-a-row jackpot. Live probability hints show your odds on each guess.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React 19** + **TypeScript** — component architecture and type safety
+- **Vite** — fast dev server and build tooling
+- **Tailwind CSS** — utility-first styling
+- **Framer Motion** — card animations (drop, flip, slide, shake, confetti)
+- **Zustand** — global balance and per-game state stores
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Build
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
 ```
+
+Output lands in `dist/`.
